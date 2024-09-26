@@ -71,7 +71,7 @@ async function updateDocument(name, dob, country, city)  {
     document.getElementById('dob').value = dob;
     document.getElementById('country').value = country;
     document.getElementById('city').value = city;
-    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     
 
     updateStudentButton.addEventListener('click',async ()=>{
