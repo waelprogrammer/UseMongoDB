@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management</h1>
+
+        <!-- Student Form Section -->
+        <div class="form-section">
+            <form id="studentForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="input" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" class="input" required>
+
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" class="input" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" class="input" required>
+
+                <button type="button" id="addStudentButton" class="btn primary">Add Student</button>
+                <button type="button" id="updateStudentButton" class="btn primary">update Student</button>
+            </form>
+        </div>
+
+        <!-- Search Section -->
+        <div id="searchSection" class="search-section">
+            <h2>Search Student</h2>
+            <div class="search-controls">
+                <label for="searchName">Name:</label>
+                <input type="text" id="searchName" name="searchName">
+                <button type="button" id="searchButton" class="btn secondary">Search</button>
+            </div>
+            <p id="searchResult"></p>
+        </div>
+        <!-- Student List Section -->
+        <div id="studentList" class="list-section">
+            <h2>Student List</h2>
+            <ul id="studentUl" class="student-ul"></ul>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

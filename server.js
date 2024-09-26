@@ -53,12 +53,12 @@ export async function createManyDocument(_connection, obj) {
         console.log('the mongodb close')
     }
 }
-export async function removeDocument(_connection, _id) {
+export async function removeDocument(_connection, name) {
     try {
         let mongoclient = await connectDB(_connection);
         const db = mongoclient.db('school');
         const collection = db.collection('students');
-        await collection.deleteOne({ _id });
+        await collection.deleteOne({ name });
     } catch (error) {
         console.log('the document dont insert')
     }
@@ -104,6 +104,23 @@ export async function FindAllDocument(_connection) {
     }
 }
 
+export async function FindAllDocumentbyname(_connection,name) {
+    try {
+        let mongoclient = await connectDB(_connection);
+        const db = mongoclient.db('school');
+        const collection = db.collection('students');
+        let toreturn = await collection.find({name}).toArray();
+        return toreturn;
+    } catch (error) {
+        console.log('the document dont insert')
+    }
+    finally {
+        // db.close() haydeh men 2abel 
+        mongoclient.close();// haydeh new la 7ata ysakro 2aktar
+        console.log('the mongodb close')
+    }
+}
+
 export async function FindOneDocument(_connection, _id) {
     try {
         let mongoclient = await connectDB(_connection);
@@ -120,12 +137,38 @@ export async function FindOneDocument(_connection, _id) {
     }
 }
 
-export async function UpdateManyDocument(_connection, _id,update) {
+export async function UpdateManyDocument(_connection, name,updatefield) {
     try {
         let mongoclient = await connectDB(_connection);
         const db = mongoclient.db('school');
         const collection = db.collection('students');
-        await collection.updateMany({ _id }, { $set: update });
+        await collection.updateMany({ name }, { $set: updatefield });
+    } catch (error) {
+        console.log('the document dont insert')
+    }
+    finally {
+        mongoclient.close();
+        console.log('the mongodb close')
+    }
+}
+// async function updateDocumentByName(collection, name, updateFields) {
+//     await collection.updateMany({ name }, { $set: updateFields });
+// }
+// export async function updateStudent(_connection,name, updateFields) {
+    
+//     let mongoclient = await connectDB(_connection);
+//     const db = mongoclient.db('school');
+//     const collection = db.collection('students');
+//     await updateDocumentByName(collection, name, updateFields);
+    
+// }
+
+export async function UpdateDocument(_connection,namest,update) {
+    try {
+        let mongoclient = await connectDB(_connection);
+        const db = mongoclient.db('school');
+        const collection = db.collection('students');
+        await collection.updateOne({ name : namest }, { $set: update });
     } catch (error) {
         console.log('the document dont insert')
     }

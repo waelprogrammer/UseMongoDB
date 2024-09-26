@@ -1,0 +1,149 @@
+/* General styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f7;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Section styling */
+.form-section, .list-section, .search-section {
+    margin-bottom: 30px;
+}
+
+/* Headers */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button.btn.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+button.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+button.btn.secondary {
+    background-color: #28a745;
+    color: white;
+}
+
+button.btn.secondary:hover {
+    background-color: #218838;
+}
+
+/* Student List */
+.student-ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+li div {
+    display: flex;
+}
+
+button.edit, button.delete {
+    background-color: #ffc107;
+    color: white;
+    margin-left: 10px;
+}
+
+button.edit:hover {
+    background-color: #e0a800;
+}
+
+button.delete {
+    background-color: #dc3545;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
+
+/* Search Section */
+.search-section {
+    margin-top: 30px;
+}
+
+.search-controls {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Add spacing between elements */
+}
+
+.search-controls label {
+    margin-bottom: 0; /* Remove default label margin */
+}
+
+.search-controls input {
+    flex: 1; /* Let the input take up available space */
+    padding: 10px;
+    border: 1px solid #ccd;
+    border-radius: 5px;
+}
+
+.search-controls button {
+    padding: 10px 40px;
+    margin-bottom: 15px;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+#searchResult {
+    margin-top: 10px;
+    font-weight: 600;
+}
