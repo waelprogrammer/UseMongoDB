@@ -29,7 +29,7 @@ async function addDocument() {
     if (name && dob && country && city) {
         const student = { name, dob, country, city };
         data.push(student);
-        await sendStudentDataToAPI(student, 'POST', 'http://localhost:1234/students');
+        await sendStudentDataToAPI(student, 'POST', 'https://usemongodb.onrender.com/students');
         studentForm.reset();
     } else {
         alert('Please fill out all fields');
@@ -42,7 +42,7 @@ addStudentButton.addEventListener('click', async () => {
 });
 
 function studentList() {
-    fetch('http://localhost:1234/students')
+    fetch('https://usemongodb.onrender.com/students')
         .then(response => response.json())
         .then(data1 => {
             const studentUl = document.getElementById('studentUl');
@@ -61,7 +61,7 @@ function studentList() {
 }
 
 async function deleteStudent(studentId) {
-    await sendStudentDataToAPI({ name: studentId }, 'DELETE', 'http://localhost:1234/students');
+    await sendStudentDataToAPI({ name: studentId }, 'DELETE', 'https://usemongodb.onrender.com/students');
     studentList();
 }
 
@@ -84,7 +84,7 @@ async function updateDocument(name, dob, country, city)  {
     if (dob) updatefield.dob = dob;           
     if (country) updatefield.country = country; 
     if (city) updatefield.city = city; 
-    await sendStudentDataToAPI({namest: name , update : updatefield}, 'PUT', 'http://localhost:1234/updatestudent');
+    await sendStudentDataToAPI({namest: name , update : updatefield}, 'PUT', 'https://usemongodb.onrender.com/updatestudent');
     studentList();
     studentForm.reset();
 
@@ -94,7 +94,7 @@ async function findDocument() {
     const searchButton = document.getElementById('searchButton');
     const namest = document.getElementById('searchName').value;  // Get the name from the input field
 
-    const response = await fetch(`http://localhost:1234/studentbyname?name=${encodeURIComponent(namest)}`, {
+    const response = await fetch(`https://usemongodb.onrender.com/studentbyname?name=${encodeURIComponent(namest)}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
